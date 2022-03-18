@@ -1,5 +1,4 @@
 import "./App.css";
-// import InputForm from "./InputForm/InputForm.js";
 import SearchLocationInput from "./SearchLocationInput/SearchLocationInput.js";
 
 function App() {

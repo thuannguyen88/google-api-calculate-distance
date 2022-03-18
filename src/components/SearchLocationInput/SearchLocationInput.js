@@ -44,9 +44,12 @@ async function handlePlaceSelect(updateQuery) {
   console.log(addressObject);
 }
 
+// take an address from query and add to database of addresses
+
 function SearchLocationInput() {
   const [query, setQuery] = useState("");
   const autoCompleteRef = useRef(null);
+//   const [addresses, setAddresses] = useState([""]);
 
   useEffect(() => {
     loadScript(
@@ -55,16 +58,26 @@ function SearchLocationInput() {
     );
   }, []);
 
+//   useEffect(() => {
+//     setAddresses([...addresses, query]);
+//   }, [query]);
+//   console.log(addresses);
+
   return (
     <>
       <div className="search-location-input">
-        <label>Address:</label>
-        <input
-          ref={autoCompleteRef}
-          onChange={(event) => setQuery(event.target.value)}
-          placeholder="Enter your address"
-          value={query}
-        />
+        <form className="form">
+          <div className="form-box">
+            <label>Location:</label>
+            <input
+              ref={autoCompleteRef}
+              onChange={(event) => setQuery(event.target.value)}
+              placeholder="Enter your address"
+              value={query}
+            />
+            <input id="location" name="location" required type="hidden" />
+          </div>
+        </form>
       </div>
       <div className="search-results">
         <h1>Search Results</h1>
